@@ -16,5 +16,15 @@ namespace MazeGenSolver
         {
             InitializeComponent();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //Application.Run(new );
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Run(new MazeGeneration());
+        }
     }
 }
