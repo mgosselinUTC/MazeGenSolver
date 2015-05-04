@@ -22,6 +22,7 @@ namespace MazeGenSolver
         {
             int minGrid;
             int maxGrid;
+           
 
 
         }
