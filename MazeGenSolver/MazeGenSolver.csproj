@@ -49,6 +49,12 @@
     <Compile Include="MazeGeneration.designer.cs">
       <DependentUpon>MazeGeneration.cs</DependentUpon>
     </Compile>
+    <Compile Include="MazeSolver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MazeSolver.Designer.cs">
+      <DependentUpon>MazeSolver.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,9 @@
   <ItemGroup>
     <EmbeddedResource Include="MazeGeneration.resx">
       <DependentUpon>MazeGeneration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MazeSolver.resx">
+      <DependentUpon>MazeSolver.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

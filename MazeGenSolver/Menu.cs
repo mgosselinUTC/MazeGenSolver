@@ -19,7 +19,7 @@ namespace MazeGenSolver
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //Application.Run(new MazeSolver());
+            Application.Run(new MazeSolver());
         }
 
         private void button1_Click(object sender, EventArgs e)
