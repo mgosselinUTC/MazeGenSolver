@@ -12,19 +12,44 @@ namespace MazeGenSolver
 {
     public partial class MazeGeneration : Form
     {
-        IDictionary<int, object> grid;
-        public MazeGeneration()
-        {
-            InitializeComponent();
-        }
+        node[] cellList;
+        node Cell = new node();
 
-        private void MazeGeneration_Load(object sender, EventArgs e)
+        public void Generate()
         {
-            int minGrid;
-            int maxGrid;
-           
+            
 
 
         }
+
     }
+
+    public class node
+    {
+        public int north = 1;
+        public int east = 2;
+        public int south = 3;
+        public int west = 4;
+
+        public bool wall = true;
+        public bool marked = false;
+
+        public void Node()
+        {
+            
+
+        }
+
+
+    }
+
+    public class Grid
+    {
+        int gridX = 5;
+        int gridY = 5;
+
+    }
+
+
+
 }
