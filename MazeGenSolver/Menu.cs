@@ -19,12 +19,12 @@ namespace MazeGenSolver
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Application.Run(new MazeSolver());
+            (new MazeSolver()).ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Application.Run(new MazeGeneration());
+           (new MazeGeneration()).ShowDialog();
         }
     }
 }

@@ -16,5 +16,18 @@ namespace MazeGenSolver
         {
             InitializeComponent();
         }
+
+        private void MazeSolver_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //load maze
+            openFileDialog1.ShowDialog();
+            button2.Text = openFileDialog1.FileName;
+
+        }
     }
 }
