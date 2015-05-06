@@ -14,6 +14,8 @@ namespace MazeGenSolver
 {
     public partial class MazeSolver : Form
     {
+        public Image imrge = null;
+
         public MazeSolver()
         {
             InitializeComponent();
@@ -22,6 +24,7 @@ namespace MazeGenSolver
         private void MazeSolver_Load(object sender, EventArgs e)
         {
             //i can deal.
+            //LE TOUCAN HAS ARRIVED!!!!
 
         }
 
@@ -33,7 +36,7 @@ namespace MazeGenSolver
             {
                 Image image = Image.FromFile(openFileDialog1.FileName);
 
-                pictureBox1.Image = image;
+                pictureBox1.Image = imrge;
 
             }
 
