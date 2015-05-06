@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +21,7 @@ namespace MazeGenSolver
 
         private void MazeSolver_Load(object sender, EventArgs e)
         {
+            //i can deal.
 
         }
 
@@ -26,8 +29,25 @@ namespace MazeGenSolver
         {
             //load maze
             openFileDialog1.ShowDialog();
-            button2.Text = openFileDialog1.FileName;
+            if (File.Exists(openFileDialog1.FileName))
+            {
+                Image image = Image.FromFile(openFileDialog1.FileName);
 
+                pictureBox1.Image = image;
+
+            }
+
+        }
+    }
+
+    public class PictureBoxWithInterpolationMode : PictureBox
+    {
+        public InterpolationMode InterpolationMode { get; set; }
+
+        protected override void OnPaint(PaintEventArgs paintEventArgs)
+        {
+            paintEventArgs.Graphics.InterpolationMode = InterpolationMode;
+            base.OnPaint(paintEventArgs);
         }
     }
 }
