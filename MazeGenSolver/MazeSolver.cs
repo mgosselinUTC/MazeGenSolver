@@ -53,18 +53,18 @@ namespace MazeGenSolver
 
         private void createGrid()
         {
-            Node.grid = new string[pictureBox1.Image.Width][];
+            SolveNode.grid = new string[pictureBox1.Image.Width][];
             for (int i = 0; i < pictureBox1.Image.Width; i++)
             {
-                Node.grid[i] = new string[pictureBox1.Image.Height];
+                SolveNode.grid[i] = new string[pictureBox1.Image.Height];
                 for (int j = 0; j < pictureBox1.Image.Height; j++)
                 {
                     switch((uint)((Bitmap)image).GetPixel(i, j).ToArgb()) {
                         case 0xFF000000:
-                            Node.grid[i][j] = "wall";
+                            SolveNode.grid[i][j] = "wall";
                             break;
                         case 0xFFFFFFFF:
-                            Node.grid[i][j] = "floor";
+                            SolveNode.grid[i][j] = "floor";
                             break;
                     }
                     
