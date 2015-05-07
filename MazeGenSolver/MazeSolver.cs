@@ -48,7 +48,9 @@ namespace MazeGenSolver
         private void button2_Click(object sender, EventArgs e)
         {
             createGrid();
-
+            SolveNode node = new SolveNode(1, 1);
+            node.solve();
+            SolveNode.printGrid();
         }
 
         private void createGrid()
@@ -77,8 +79,112 @@ namespace MazeGenSolver
     public class SolveNode
     {
         public static string[][] grid;
-        
-        
+        public static int endX, endY;
+        private int x, y;
+        private static bool solved = false;
 
+        public SolveNode(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public void solve()
+        {
+            if (x == endX && y == endY)
+            {
+                solved = true;
+                grid[x][y] = "solution";
+                return;
+            }
+
+            try
+            {
+                if (grid[x][y + 1] == "floor")
+                {
+                    grid[x][y] = "potential";
+                    SolveNode node = new SolveNode(x, y + 1);
+                    node.solve();
+                    if (solved)
+                    {
+                        grid[x][y] = "solution";
+                        return;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            try
+            {
+                if (grid[x][y - 1] == "floor")
+                {
+                    grid[x][y] = "potential";
+                    SolveNode node = new SolveNode(x, y - 1);
+                    node.solve();
+                    if (solved)
+                    {
+                        grid[x][y] = "solution";
+                        return;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            try
+            {
+                if (grid[x + 1][y] == "floor")
+                {
+                    grid[x][y] = "potential";
+                    SolveNode node = new SolveNode(x + 1, y);
+                    node.solve();
+                    if (solved)
+                    {
+                        grid[x][y] = "solution";
+                        return;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            try
+            {
+                if (grid[x - 1][y] == "floor")
+                {
+                    grid[x][y] = "potential";
+                    SolveNode node = new SolveNode(x - 1, y);
+                    node.solve();
+                    if (solved)
+                    {
+                        grid[x][y] = "solution";
+                        return;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            grid[x][y] = "floor";
+        }
+
+
+        public static void printGrid()
+        {
+            for (int i = 0; i < grid.Length; i++)
+            {
+                for (int j = 0; j < grid[i].Length; j++)
+                {
+
+                    Console.Write(grid[i][j] == "floor" ? "  " : grid[i][j] == "wall" ? "OO" : grid[i][j] == "solution" ? "**" : "XX");
+
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }
