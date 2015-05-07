@@ -14,6 +14,9 @@ namespace MazeGenSolver
 {
     public partial class MazeSolver : Form
     {
+
+        private Image image;
+
         public MazeSolver()
         {
             InitializeComponent();
@@ -21,7 +24,9 @@ namespace MazeGenSolver
 
         private void MazeSolver_Load(object sender, EventArgs e)
         {
+
             //i can deal.
+
             //LE TOUCAN HAS ARRIVED!!!!
 
         }
@@ -32,23 +37,48 @@ namespace MazeGenSolver
             openFileDialog1.ShowDialog();
             if (File.Exists(openFileDialog1.FileName))
             {
-                Image image = Image.FromFile(openFileDialog1.FileName);
+                image = Bitmap.FromFile(openFileDialog1.FileName);
 
                 pictureBox1.Image = image;
 
             }
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            createGrid();
+
+        }
+
+        private void createGrid()
+        {
+            Node.grid = new string[pictureBox1.Image.Width][];
+            for (int i = 0; i < pictureBox1.Image.Width; i++)
+            {
+                Node.grid[i] = new string[pictureBox1.Image.Height];
+                for (int j = 0; j < pictureBox1.Image.Height; j++)
+                {
+                    switch((uint)((Bitmap)image).GetPixel(i, j).ToArgb()) {
+                        case 0xFF000000:
+                            Node.grid[i][j] = "wall";
+                            break;
+                        case 0xFFFFFFFF:
+                            Node.grid[i][j] = "floor";
+                            break;
+                    }
+                    
+
+                }
+            }
+        }
     }
 
-    public class PictureBoxWithInterpolationMode : PictureBox
+    public class SolveNode
     {
-        public InterpolationMode InterpolationMode { get; set; }
+        public static string[][] grid;
+        
+        
 
-        protected override void OnPaint(PaintEventArgs paintEventArgs)
-        {
-            paintEventArgs.Graphics.InterpolationMode = InterpolationMode;
-            base.OnPaint(paintEventArgs);
-        }
     }
 }
