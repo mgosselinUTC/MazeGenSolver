@@ -56,6 +56,10 @@ namespace MazeGenSolver
         private void createGrid()
         {
             SolveNode.grid = new string[pictureBox1.Image.Width][];
+
+            SolveNode.endX = pictureBox1.Image.Width - 2;
+            SolveNode.endY = pictureBox1.Image.Height - 2;
+
             for (int i = 0; i < pictureBox1.Image.Width; i++)
             {
                 SolveNode.grid[i] = new string[pictureBox1.Image.Height];
@@ -180,7 +184,7 @@ namespace MazeGenSolver
                 for (int j = 0; j < grid[i].Length; j++)
                 {
 
-                    Console.Write(grid[i][j] == "floor" ? "  " : grid[i][j] == "wall" ? "OO" : grid[i][j] == "solution" ? "**" : "XX");
+                    Console.Write(grid[i][j] == "floor" ? "  " : (grid[i][j] == "wall" ? "OO" : (grid[i][j] == "solution" ? "**" : "XX")));
 
                 }
                 Console.WriteLine();
