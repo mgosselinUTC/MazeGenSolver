@@ -12,44 +12,39 @@ namespace MazeGenSolver
 {
     public partial class MazeGeneration : Form
     {
-        node[] cellList;
-        node Cell = new node();
+        
 
-        public void Generate()
+        Node node;
+        void start()
         {
-            
+            Node node = new Node();
+            node.nodeCS();
+        }
+
+    }
+
+    public class Node : MazeGeneration
+    {
+       public static int[][] Grid;
+
+
+
+       public void nodeCS()
+        {
+       
+               List<object> list = new List<object>();
+
+               try
+               {
+
+               }
+               catch (Exception e)
+               {
+
+               }
 
 
         }
 
     }
-
-    public class node
-    {
-        public int north = 1;
-        public int east = 2;
-        public int south = 3;
-        public int west = 4;
-
-        public bool wall = true;
-        public bool marked = false;
-
-        public void Node()
-        {
-            
-
-        }
-
-
-    }
-
-    public class Grid
-    {
-        int gridX = 5;
-        int gridY = 5;
-
-    }
-
-
-
 }
